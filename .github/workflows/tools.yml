@@ -6,6 +6,7 @@ env:
   AZURE_AKS_CLUSTER: toolsakscluster
   AKS_RESOURCE_GROUP: azure-automation-rg
   ACR_RESOURCE_URI: azuretoolsacr.azurecr.io
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
 
 jobs:
   build:
