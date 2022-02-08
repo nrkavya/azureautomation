@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 
 namespace frontend
 {
+    //
     public class WeatherClient
     {
         private readonly JsonSerializerOptions options = new JsonSerializerOptions()
