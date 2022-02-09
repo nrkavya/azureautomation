@@ -35,11 +35,10 @@ jobs:
         password: ${{ secrets.ACR_PASSWORD }}
 
     - name: 📃 Set AKS context
-      uses: azure/aks-set-context@v1
+      uses: azure/K8S-set-context@v1
       with:
-        creds: '${{ secrets.AZURE_CREDENTIALS }}'
-        cluster-name: ${{ env.AZURE_AKS_CLUSTER }}
-        resource-group: ${{ env.AKS_RESOURCE_GROUP }}
+       method: kubeconfig
+       kubeconfig: ${{ secrets.KUBE_CONFIG }}
 
     - name: Build image on ACR 
       uses: azure/CLI@v1
