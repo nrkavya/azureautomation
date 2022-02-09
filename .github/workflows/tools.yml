@@ -6,6 +6,8 @@ env:
   AZURE_AKS_CLUSTER: toolsakscluster
   AKS_RESOURCE_GROUP: azure-automation-rg
   ACR_RESOURCE_URI: azuretoolsacr.azurecr.io
+  AZURE_CONTAINER_REGISTRY: azuretoolsacr
+  PROJECT_NAME: Azure Automation
   ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
 
 jobs:
@@ -39,9 +41,26 @@ jobs:
         cluster-name: ${{ env.AZURE_AKS_CLUSTER }}
         resource-group: ${{ env.AKS_RESOURCE_GROUP }}
 
+    - name: Build image on ACR 
+      uses: azure/CLI@v1
+      with:
+        azcliversion: 2.29.1
+        inlineScript: |
+          az configure --defaults acr=${{env.AZURE_CONTAINER_REGISTRY }}
+          az acr build -t -t ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.PROJECT_NAME }}:${{ github.sha }}
+   
+    - name: Gets K8s context
+      uses: azure/aks-set-context@v1
+      with:
+          creds: '${{ secrets.AZURE_CREDENTIALS }}'
+          cluster-name: ${{ env.AZURE_AKS_CLUSTER }}
+          resource-group: ${{ env.AKS_RESOURCE_GROUP }}
+
+
     - name: 🌐 Install ingress-nginx
       run: |
         kubectl apply -f https://aka.ms/tye/ingress/deploy
     - name: ☸ tye deploy
       run: |
         tye deploy -v Debug
+
