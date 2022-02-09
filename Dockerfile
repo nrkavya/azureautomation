@@ -10,7 +10,7 @@ COPY . .
 RUN dotnet restore
 RUN dotnet build -c Release
 RUN dotnet test
-RUN dotnet publish -c Release /dist
+RUN dotnet publish -c Release -o /dist
 
 # production server
 FROM mcr.microsoft.com/dotnet/sdk:5.0-alpine
