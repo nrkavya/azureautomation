@@ -39,6 +39,11 @@ jobs:
       with:
        method: kubeconfig
        kubeconfig: ${{ secrets.KUBE_CONFIG }}
+       
+    - uses: azure/aks-set-context@v2.0
+      with:
+       resource-group: ${{ env.AKS_RESOURCE_GROUP }}
+       cluster_name: ${{env.AZURE_AKS_CLUSTER }}
      
     - name: 🌐 Install ingress-nginx
       run: |
