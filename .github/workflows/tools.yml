@@ -40,14 +40,20 @@ jobs:
        method: kubeconfig
        kubeconfig: ${{ secrets.KUBE_CONFIG }}
      
-    - uses: azure/login@v1
+    - name: Build image on ACR 
+      uses: azure/CLI@V1
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-       
-    - uses: azure/aks-set-context@v2.0
+        azcliversion: 2.29.1
+        inlineScript: |
+          az configure --defaults acr=${{env.AZURE_CONTAINER_REGISTRY }}
+          az acr build -t -t ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.PROJECT_NAME }}:${{ github.sha }}
+   
+    - name: Gets K8s context
+      uses: azure/aks-set-context@v1
       with:
-       resource-group: ${{ env.AKS_RESOURCE_GROUP }}
-       cluster-name: ${{env.AZURE_AKS_CLUSTER }}
+          creds: '${{ secrets.AZURE_CREDENTIALS }}'
+          cluster-name: ${{ env.AZURE_AKS_CLUSTER }}
+          resource-group: ${{ env.AKS_RESOURCE_GROUP }}
      
     - name: 🌐 Install ingress-nginx
       run: |
