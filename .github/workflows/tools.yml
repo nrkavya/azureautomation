@@ -41,7 +41,7 @@ jobs:
        kubeconfig: ${{ secrets.KUBE_CONFIG }}
      
     - name: Build image on ACR 
-      uses: azure/CLI@V1
+      uses: azure/CLI@v1
       with:
         azcliversion: 2.29.1
         inlineScript: |
