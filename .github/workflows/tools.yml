@@ -39,6 +39,10 @@ jobs:
       with:
        method: kubeconfig
        kubeconfig: ${{ secrets.KUBE_CONFIG }}
+     
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
        
     - uses: azure/aks-set-context@v2.0
       with:
