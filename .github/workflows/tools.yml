@@ -39,6 +39,11 @@ jobs:
       with:
        method: kubeconfig
        kubeconfig: ${{ secrets.KUBE_CONFIG }}
+       
+    - name: 🌐 redis config
+      run: |
+       kubectl apply -f example-redis-config.yaml
+       kubectl apply -f https://raw.githubusercontent.com/kubernetes/website/main/content/en/examples/pods/config/redis-pod.yaml
      
     - name: ☸ tye deploy
       run: |
