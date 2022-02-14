@@ -46,4 +46,4 @@ jobs:
      
     - name: ☸ tye deploy
       run: |
-        tye deploy -v Debug
+        tye deploy --interactive
