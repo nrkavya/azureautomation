@@ -34,15 +34,18 @@ jobs:
         username: ${{ secrets.ACR_USER }}  
         password: ${{ secrets.ACR_PASSWORD }}
 
+#     - name: 📃 Set AKS context
+#       uses: azure/K8S-set-context@v1
+#       with:
+#        method: kubeconfig
+#        kubeconfig: ${{ secrets.KUBE_CONFIG }}
+      
     - name: 📃 Set AKS context
-      uses: azure/K8S-set-context@v1
+      uses: azure/aks-set-context@v1
       with:
-       method: kubeconfig
-       kubeconfig: ${{ secrets.KUBE_CONFIG }}
-       
-    - name: 🌐 Install ingress-nginx
-      run: |
-       kubectl apply -f https://aka.ms/tye/ingress/deploy
+        creds: '${{ secrets.AZURE_CREDENTIALS }}'
+        cluster-name: ${{ env.AZURE_AKS_CLUSTER }}
+        resource-group: ${{ env.AKS_RESOURCE_GROUP }}
      
     - name: ☸ tye deploy
       run: |
