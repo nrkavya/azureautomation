@@ -34,11 +34,11 @@ jobs:
         username: ${{ secrets.ACR_USER }}  
         password: ${{ secrets.ACR_PASSWORD }}
 
-    - name: 📃 Set AKS context
-      uses: azure/K8S-set-context@v1
-      with:
-       method: kubeconfig
-       kubeconfig: ${{ secrets.KUBE_CONFIG }}
+#     - name: 📃 Set AKS context
+#       uses: azure/K8S-set-context@v1
+#       with:
+#        method: kubeconfig
+#        kubeconfig: ${{ secrets.KUBE_CONFIG }}
       
 #     - name: 📃 Set AKS context
 #       uses: azure/aks-set-context@v1
