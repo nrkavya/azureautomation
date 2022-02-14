@@ -39,10 +39,6 @@ jobs:
       with:
        method: kubeconfig
        kubeconfig: ${{ secrets.KUBE_CONFIG }}
-       
-    - name: 🌐 Install ingress-nginx
-      run: |
-        kubectl apply -f https://aka.ms/tye/ingress/deploy
      
     - name: ☸ tye deploy
       run: |
