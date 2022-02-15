@@ -1,0 +1,19 @@
+{
+   "Name":"AKS Cluster Configuration Reader",
+   "Id":"{8D29FE57-D581-477D-9BA4-8F74FC957EA7}",
+   "IsCustom":true,
+   "Description":"Can get AKS configuration.",
+   "Actions":[
+      "Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action",
+      "Microsoft.ContainerService/managedClusters/listClusterUserCredential/action"
+   ],
+   "NotActions":[
+   ],
+   "DataActions":[
+   ],
+   "NotDataActions":[
+   ],
+   "AssignableScopes":[
+      "/subscriptions/bd1efa1a-9d6f-43fa-a597-dc2507ae3fb5"
+   ]
+}
