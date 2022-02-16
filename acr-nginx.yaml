@@ -18,9 +18,9 @@ spec:
       - name: nginx
         image: azuretoolsacr.azurecr.io/nginx:v1
         imagePullPolicy: Always
-        command: ["echo"]
-         args: ["SUCCESS"]
         ports:
-        - containerPort: 8080
+        - name: nginx
+        containerPort: 8080
+        protocol: TCP
      imagePullSecrets:
      - name: regcred1
