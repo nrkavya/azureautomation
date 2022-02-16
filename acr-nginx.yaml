@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: deployment
+kind: Deployment
 metadata:
   name: nginx0-deployment
   labels:
@@ -14,12 +14,11 @@ spec:
       labels:
         app: nginx0
     spec:
-         imagePullSecrets:
-         - name: regcred
-         containers:
-         - name: nginx
-           image: azuretoolsacr.azurecr.io/nginx:v1
-           imagePullPolicy: Always
-         ports:
-         - containerPort: 80
+      containers:
+      - name: nginx
+        image: azuretoolsacr.azurecr.io/nginx:v1
+     imagePullSecrets:
+     - name: regcred
+        ports:
+        - containerPort: 80
  
