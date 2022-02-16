@@ -17,8 +17,8 @@ spec:
       containers:
       imagePullSecrets:
       - name: regcred
+        imagePullPolicy: Always
        - name: nginx
         image: azuretoolsacr.azurecr.io/nginx:v1
-        imagePullPolicy: Always
         ports:
         - containerPort: 80
