@@ -59,7 +59,7 @@ jobs:
       
     - name: 🌐 kubectl apply
       run: |
-        kubectl apply -f acr-nginx.yaml --validate=false
+        kubectl apply -f acr-nginx.yaml 
 
      
     - name: ☸ tye deploy
