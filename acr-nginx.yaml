@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: deployment
+kind: StatefulSet
 metadata:
   name: nginx0-deployment
   labels:
@@ -9,7 +9,6 @@ spec:
   selector:
     matchLabels:
       app: nginx0
-      version: v1
   template:
     metadata:
       labels:
