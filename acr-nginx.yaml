@@ -15,10 +15,10 @@ spec:
         app: nginx0
     spec:
       containers:
-      - name: nginx
+      imagePullSecrets:
+      - name: regcred
+       - name: nginx
         image: azuretoolsacr.azurecr.io/nginx:v1
         imagePullPolicy: Always
         ports:
         - containerPort: 80
-  imagePullSecrets:
-   - name: regcred
