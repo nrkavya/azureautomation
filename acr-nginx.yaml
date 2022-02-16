@@ -19,6 +19,6 @@ spec:
         image: azuretoolsacr.azurecr.io/nginx:v1
         imagePullPolicy: Always
       imagePullSecrets:
-       - name: regcred
+      - name: regcred
         ports:
         - containerPort: 80
