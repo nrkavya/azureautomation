@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       imagePullSecrets:
-      - name: {{ secrets.imagePullSecrets }}
+      - name: {{ secrets.REGCRED1 }}
        - name: nginx
         image: azuretoolsacr.azurecr.io/nginx:v1
         imagePullPolicy: Always
