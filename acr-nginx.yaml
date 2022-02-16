@@ -15,8 +15,6 @@ spec:
         app: nginx0
     spec:
       containers:
-      imagePullSecrets:
-      - name: regcred1
        - name: nginx
         image: azuretoolsacr.azurecr.io/nginx:v1
         imagePullPolicy: Always
