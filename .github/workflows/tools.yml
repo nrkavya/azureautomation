@@ -57,9 +57,9 @@ jobs:
 #          cluster-name: ${{ env.AZURE_AKS_CLUSTER }}
      
       
-    - name: 🌐 kubectl apply
-      run: |
-        kubectl apply -f acr-nginx.yaml 
+#     - name: 🌐 kubectl apply
+#       run: |
+#         kubectl apply -f acr-nginx.yaml 
 
      
     - name: ☸ tye deploy
