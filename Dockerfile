@@ -1,5 +1,8 @@
- # syntax=docker/dockerfile:1
-  FROM mcr.microsoft.com/dotnet/aspnet:5.0
-  COPY bin/Release/netcoreapp3.1/publish/ frontend/
-  WORKDIR /frontend
-  ENTRYPOINT ["dotnet", "frontend.dll"]
+FROM microsoft/aspnetcore:latest
+
+WORKDIR /frontend
+
+COPY /frontend /frontend
+RUN dotnet publish -c Release -o out
+ENTRYPOINT ["dotnet", "frontend.dll"]
+
