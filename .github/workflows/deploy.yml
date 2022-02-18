@@ -20,12 +20,20 @@ jobs:
         docker build . -t azuretoolsacr.azurecr.io/k8sflask:${{ github.sha }}
         docker push azuretoolsacr.azurecr.io/k8sflask:${{ github.sha }}
       
-    # Set the target AKS cluster.
-    - uses: Azure/aks-set-context@v1
+#     # Set the target AKS cluster.
+#     - uses: Azure/aks-set-context@v1
+#       with:
+#         creds: '${{ secrets.AZURE_CREDENTIALS }}'
+#         cluster-name: toolsakscluster
+#         resource-group: azure-automation-rg
+      
+    - name: 📃 Set AKS context
+      uses: azure/K8S-set-context@v1
       with:
-        creds: '${{ secrets.AZURE_CREDENTIALS }}'
-        cluster-name: toolsakscluster
-        resource-group: azure-automation-rg
+       method: kubeconfig
+       cluster-name: toolsakscluster
+       kubeconfig: ${{ secrets.KUBE_CONFIG }}
+       
         
     - uses: Azure/k8s-create-secret@v1
       with:
