@@ -60,13 +60,14 @@ jobs:
     # Deploy app to AKS
     - uses: azure/k8s-deploy@v1
       with:
-        method: kubeconfig
-        kubeconfig: ${{ secrets.KUBE_CONFIG }}
-        images: |
+       manifests: |
+          ${{ github.workspace }}/manifests/deployment.yaml
+          ${{ github.workspace }}/manifests/service.yaml
+       images: |
           ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
-        imagepullsecrets: |
+       imagepullsecrets: |
           ${{ env.SECRET }}
-        namespace: ${{ env.NAMESPACE }}
+          namespace: ${{ env.NAMESPACE }}
    
 #     - name: Deploy to k8s
 #       run: kubectl apply -f k8s/ 
