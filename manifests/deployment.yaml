@@ -1,12 +1,25 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: frontend-pod
-  namespace: default
+  name: frontend-app
+  labels:
+    app: frontend
+    env: dev
 spec:
-  containers:
-    - name: main-app-container
-      image: azuretoolsacr.azurecr.io/nginx:v1
-      imagePullPolicy: IfNotPresent
-  imagePullSecrets:
-    - name: regcred
+  replicas: 2
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+        env: dev
+    spec:
+      containers:
+      - name: flask
+        image: azuretoolsacr.azurecr.io/frontend
+        ports:
+        - name:  http
+          containerPort: 8080
+          protocol: TCP
