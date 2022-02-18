@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: frontend-app-pod
-  namespace: awesomeapps
+  namespace: default
 spec:
   containers:
     - name: main-app-container
