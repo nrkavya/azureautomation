@@ -13,7 +13,7 @@ jobs:
     - uses: Azure/docker-login@v1
       with:
         login-server: azuretoolsacr.azurecr.io
-        username: ${{ secrets.ACR_USERNAME }}
+        username: ${{ secrets.ACR_USER }}
         password: ${{ secrets.ACR_PASSWORD }}
     
     - run: |
@@ -30,7 +30,7 @@ jobs:
     - uses: Azure/k8s-create-secret@v1
       with:
         container-registry-url: azuretoolsacr.azurecr.io
-        container-registry-username: ${{ secrets.ACR_USERNAME }}
+        container-registry-username: ${{ secrets.ACR_USER }}
         container-registry-password: ${{ secrets.ACR_PASSWORD }}
         secret-name: regcred
 
