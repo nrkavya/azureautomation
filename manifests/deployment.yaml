@@ -54,7 +54,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: frontend
-        image: azuretoolsacrr.azurecr.io/myimage:v1
+        image: azuretoolsacrr.azurecr.io/frontend:v1
         ports:
         - containerPort: 80
         resources:
