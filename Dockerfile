@@ -2,7 +2,7 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /frontend
 
 # COPY *.sln .
-COPY *.csproj ./
+COPY frontend.csproj ./
 RUN dotnet restore frontend.csproj
 
 # copy everything else and build app
