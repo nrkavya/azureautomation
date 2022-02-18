@@ -39,6 +39,9 @@ jobs:
       with:
        method: kubeconfig
        kubeconfig: ${{ secrets.KUBE_CONFIG }}
+     
+    - name: Deploy to k8s
+      run: kubectl apply -f k8s/ 
       
 #     - name: 📃 Set AKS context
 #       uses: azure/aks-set-context@v1
