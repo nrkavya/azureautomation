@@ -88,4 +88,4 @@ jobs:
      
     - name: ☸ tye deploy
       run: |
-        tye deploy 
+        tye deploy -v debug
