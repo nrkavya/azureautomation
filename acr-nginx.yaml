@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx0-deployment
+  name: frontend-deployment
   labels:
-    app: nginx0-deployment
+    app: frontend-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: nginx0
+      app: frontend
   template:
     metadata:
       labels:
-        app: nginx0
+        app: frontend
     spec:
       containers:
-      - name: nginx
-        image: azuretoolsacr.azurecr.io/nginx:v1
+      - name: frontend
+        image: azuretoolsacr.azurecr.io/frontend:v1
         imagePullPolicy: Always
         ports:
         - containerPort: 80
