@@ -1,4 +1,4 @@
-aapiVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend-deployment
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: azuretoolsacr.azurecr.io/frontend:v1
+        image: azuretoolsacr.azurecr.io/frontend
         imagePullPolicy: Always
         ports:
         - containerPort: 80
