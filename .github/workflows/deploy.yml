@@ -53,6 +53,10 @@ jobs:
 #           azuretoolsacr.azurecr.io/frontend:${{ github.sha }}
 #         imagepullsecrets: |
 #           azuretoolscred
+
+    - name: install tye
+      run: |
+         dotnet tool install -g Microsoft.Tye --version "0.11.0-alpha.22111.1"
       
     - name: ☸ tye deploy
       run: |
