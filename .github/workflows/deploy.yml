@@ -60,5 +60,5 @@ jobs:
       
     - name: ☸ tye deploy
       run: |
-        tye deploy -v debug
+        tye deploy 
 
