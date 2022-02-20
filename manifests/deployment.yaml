@@ -1,21 +1,22 @@
-apiVersion: apps/v1
+aapiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend-deployment
+  labels:
+    app: frontend
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      run: frontend-deployment
-  replicas: 2
+      app: frontend
   template:
     metadata:
       labels:
-        run: frontend-deployment
+        app: frontend
     spec:
       containers:
-      - name: frontend-deployment
-        image:  azuretoolsacr.azurecr.io/frontend:v1
+      - name: frontend
+        image: azuretoolsacr.azurecr.io/frontend:v1
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
-
-
