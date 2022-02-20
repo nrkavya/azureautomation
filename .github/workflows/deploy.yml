@@ -34,7 +34,6 @@ jobs:
       uses: azure/K8S-set-context@v1
       with:
        method: kubeconfig
-       cluster-name: toolsakscluster
        kubeconfig: ${{ secrets.KUBE_CONFIG }}
        
         
@@ -43,7 +42,7 @@ jobs:
         container-registry-url: azuretoolsacr.azurecr.io
         container-registry-username: ${{ secrets.ACR_USER }}
         container-registry-password: ${{ secrets.ACR_PASSWORD }}
-        secret-name: regcred
+        secret-name: azuretoolscred
 
     - uses: Azure/k8s-deploy@v1
       with:
@@ -51,6 +50,6 @@ jobs:
           manifests/deployment.yaml
           manifests/service.yaml
         images: |
-          azuretoolsacr.azurecr.io/k8sflask:${{ github.sha }}
+          azuretoolsacr.azurecr.io/frontend:${{ github.sha }}
         imagepullsecrets: |
-          regcred
+          azuretoolscred
