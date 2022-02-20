@@ -44,12 +44,17 @@ jobs:
         container-registry-password: ${{ secrets.ACR_PASSWORD }}
         secret-name: azuretoolscred
 
-    - uses: Azure/k8s-deploy@v1
-      with:
-        manifests: |
-          manifests/deployment.yaml
-          manifests/service.yaml
-        images: |
-          azuretoolsacr.azurecr.io/frontend:${{ github.sha }}
-        imagepullsecrets: |
-          azuretoolscred
+#     - uses: Azure/k8s-deploy@v1
+#       with:
+#         manifests: |
+#           manifests/deployment.yaml
+#           manifests/service.yaml
+#         images: |
+#           azuretoolsacr.azurecr.io/frontend:${{ github.sha }}
+#         imagepullsecrets: |
+#           azuretoolscred
+      
+    - name: ☸ tye deploy
+      run: |
+        tye deploy -v debug
+
