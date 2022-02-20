@@ -44,21 +44,21 @@ jobs:
         container-registry-password: ${{ secrets.ACR_PASSWORD }}
         secret-name: azuretoolscred
 
-#     - uses: Azure/k8s-deploy@v1
-#       with:
-#         manifests: |
-#           manifests/deployment.yaml
-#           manifests/service.yaml
-#         images: |
-#           azuretoolsacr.azurecr.io/frontend:${{ github.sha }}
-#         imagepullsecrets: |
-#           azuretoolscred
+    - uses: Azure/k8s-deploy@v1
+      with:
+        manifests: |
+          manifests/deployment.yaml
+          manifests/service.yaml
+        images: |
+          azuretoolsacr.azurecr.io/frontend:${{ github.sha }}
+        imagepullsecrets: |
+          azuretoolscred
 
-    - name: install tye
-      run: |
-         dotnet tool install -g Microsoft.Tye --version "0.11.0-alpha.22111.1"
+#     - name: install tye
+#       run: |
+#          dotnet tool install -g Microsoft.Tye --version "0.11.0-alpha.22111.1"
       
-    - name: ☸ tye deploy
-      run: |
-        tye deploy 
+#     - name: ☸ tye deploy
+#       run: |
+#         tye deploy 
 
