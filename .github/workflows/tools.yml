@@ -44,9 +44,9 @@ jobs:
        method: kubeconfig
        kubeconfig: ${{ secrets.KUBE_CONFIG }}
        
-#     - name: undeploy
-#       run: |
-#          tye undeploy
+    - name: undeploy
+      run: |
+         tye undeploy
        
 #       # Create namespace if doesn't exist
 #     - run: |
@@ -82,9 +82,9 @@ jobs:
 #          cluster-name: ${{ env.AZURE_AKS_CLUSTER }}
      
       
-#     - name: 🌐 kubectl apply
-#       run: |
-#         kubectl apply -f https://raw.githubusercontent.com/dotnet/tye/master/docs/tutorials/hello-tye/redis.yaml
+    - name: 🌐 kubectl apply
+      run: |
+        kubectl apply -f https://raw.githubusercontent.com/dotnet/tye/master/docs/tutorials/hello-tye/redis.yaml
         
 #     - name: 🌐 Install ingress-nginx
 #       run: |
@@ -98,6 +98,6 @@ jobs:
       run: |
         tye deploy -v debug
         
-#     - name: pull
-#       run: |
-#         docker pull ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/frontend:1.0.0
+    - name: pull
+      run: |
+        docker pull ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/frontend:1.0.0
