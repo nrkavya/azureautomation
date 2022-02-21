@@ -43,9 +43,9 @@ jobs:
        method: kubeconfig
        kubeconfig: ${{ secrets.KUBE_CONFIG }}
        
-    - name: undeploy
-      run: |
-         tye undeploy
+#     - name: undeploy
+#       run: |
+#          tye undeploy
        
 #       # Create namespace if doesn't exist
 #     - run: |
@@ -92,3 +92,7 @@ jobs:
     - name: ☸ tye deploy
       run: |
         tye deploy -v debug
+        
+    - name: pull
+      run: |
+        docker pull ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/frontend:1.0.0
