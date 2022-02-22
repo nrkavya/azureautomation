@@ -100,11 +100,11 @@ jobs:
 
     - name: acr import
       run: |
-         az acr import  -n azuretoolsacr --source docker.io/20848/frontend:1.0.0 --image frontend:v4
+         az acr import  -n azuretoolsacr --source docker.io/20848/frontend:1.0.0 --image frontend:v5
    
     - name: pull
       run: |
-        docker pull ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/frontend:v4
+        docker pull ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/frontend:v5
 
     - name: ☸ tye deploy
       run: |
