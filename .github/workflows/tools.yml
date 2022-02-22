@@ -43,10 +43,6 @@ jobs:
       with:
        method: kubeconfig
        kubeconfig: ${{ secrets.KUBE_CONFIG }}
-     
-#     - name: build
-#       run: |
-#         docker build - < Dockerfile
        
 #     - name: undeploy
 #       run: |
@@ -66,8 +62,6 @@ jobs:
 #         namespace: ${{ env.NAMESPACE }}
 #         arguments: --force true
     
-#     - name: Deploy to k8s
-#       run: kubectl apply -f k8s/ 
       
 #     - name: 📃 Set AKS context
 #       uses: azure/aks-set-context@v1
@@ -75,33 +69,37 @@ jobs:
 #         creds: '${{ secrets.AZURE_CREDENTIALS }}'
 #         cluster-name: ${{ env.AZURE_AKS_CLUSTER }}
 #         resource-group: ${{ env.AKS_RESOURCE_GROUP }}
-        
-#     - uses: azure/actions/login@v1
-#       with:
-#         creds: ${{ secrets.AZURE_CREDENTIALS }}
-    
-#     - uses: azure/aks-set-context@v2.0
-#       with:
-#          resource-group:  ${{ env.AKS_RESOURCE_GROUP }}
-#          cluster-name: ${{ env.AZURE_AKS_CLUSTER }}
      
       
 #     - name: 🌐 kubectl apply
 #       run: |
 #         kubectl apply -f https://raw.githubusercontent.com/dotnet/tye/master/docs/tutorials/hello-tye/redis.yaml
+       
         
     - name: 🌐 Install ingress-nginx
       run: |
         kubectl apply -f https://aka.ms/tye/ingress/deploy
-   
-#     - name: pull
+        
+#     - name: 🌐 kubectl apply deployment 
 #       run: |
-#         docker pull ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/frontend:1.0.0
+#           kubectl apply -f acr-nginx.yaml
+      
+    - name: login
+      run: |
+         az login -u kavya.nr@sonata-software.com -p Rameshkumar.123
+        
+    - name: acr import
+      run: |
+         az acr import  -n azuretoolsacr --source docker.io/20848/frontend:1.0.0 --image frontend:v5
+   
+    - name: 🌐 kubectl apply deployment 
+      run: |
+          kubectl apply -f acr-nginx.yaml
+   
+    - name: pull
+      run: |
+        docker pull ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/frontend:v5
 
     - name: ☸ tye deploy
       run: |
         tye deploy -v debug
-        
-#     - name: pull
-#       run: |
-#         docker pull ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/frontend:1.0.0
