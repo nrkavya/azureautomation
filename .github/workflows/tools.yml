@@ -86,13 +86,17 @@ jobs:
 #          cluster-name: ${{ env.AZURE_AKS_CLUSTER }}
      
       
-#     - name: 🌐 kubectl apply
-#       run: |
-#         kubectl apply -f https://raw.githubusercontent.com/dotnet/tye/master/docs/tutorials/hello-tye/redis.yaml
+    - name: 🌐 kubectl apply
+      run: |
+        kubectl apply -f https://raw.githubusercontent.com/dotnet/tye/master/docs/tutorials/hello-tye/redis.yaml
         
     - name: 🌐 Install ingress-nginx
       run: |
         kubectl apply -f https://aka.ms/tye/ingress/deploy
+        
+    - name: 🌐 kubectl apply deployment 
+      run: |
+          kubectl apply -f acr-nginx.yaml
    
 #     - name: pull
 #       run: |
