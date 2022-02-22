@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: azuretoolsacr.azurecr.io/frontend:v3
+        image: azuretoolsacr.azurecr.io/frontend:a1
         imagePullPolicy: Always
         ports:
         - containerPort: 80
