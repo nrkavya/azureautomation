@@ -71,9 +71,9 @@ jobs:
 #         resource-group: ${{ env.AKS_RESOURCE_GROUP }}
      
       
-#     - name: 🌐 kubectl apply
-#       run: |
-#         kubectl apply -f https://raw.githubusercontent.com/dotnet/tye/master/docs/tutorials/hello-tye/redis.yaml
+    - name: 🌐 kubectl apply
+      run: |
+        kubectl apply -f https://raw.githubusercontent.com/dotnet/tye/master/docs/tutorials/hello-tye/redis.yaml
        
 #     - name: 🌐 kubectl apply deployment 
 #       run: |
