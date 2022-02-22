@@ -62,8 +62,6 @@ jobs:
 #         namespace: ${{ env.NAMESPACE }}
 #         arguments: --force true
     
-#     - name: Deploy to k8s
-#       run: kubectl apply -f k8s/ 
       
 #     - name: 📃 Set AKS context
 #       uses: azure/aks-set-context@v1
@@ -92,7 +90,7 @@ jobs:
         
     - name: acr import
       run: |
-         az acr import  -n azuretoolsacr --source docker.io/20848/frontend:1.0.0 --image frontend:v3
+         az acr import  -n azuretoolsacr --source docker.io/20848/frontend:1.0.0 --image frontend:v4
    
     - name: 🌐 kubectl apply deployment 
       run: |
@@ -100,7 +98,7 @@ jobs:
    
     - name: pull
       run: |
-        docker pull ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/frontend:v3
+        docker pull ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/frontend:v4
 
     - name: ☸ tye deploy
       run: |
