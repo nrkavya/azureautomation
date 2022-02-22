@@ -9,7 +9,7 @@ env:
   AZURE_CONTAINER_REGISTRY: azuretoolsacr
   PROJECT_NAME: Azure Automation
   SECRET: regcred
-  NAMESPACE: tools
+  NAMESPACE: default
   APP_NAME: microservices
   ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
 
@@ -43,6 +43,10 @@ jobs:
       with:
        method: kubeconfig
        kubeconfig: ${{ secrets.KUBE_CONFIG }}
+     
+#     - name: build
+#       run: |
+#         docker build - < Dockerfile
        
 #     - name: undeploy
 #       run: |
