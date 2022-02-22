@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: azuretoolsacr.azurecr.io/frontend:v2
+        image: azuretoolsacr.azurecr.io/frontend:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
