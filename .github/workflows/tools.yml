@@ -104,7 +104,7 @@ jobs:
    
     - name: pull
       run: |
-        docker pull ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/frontend:latest
+        docker pull ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/frontend:v4
 
     - name: ☸ tye deploy
       run: |
