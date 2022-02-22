@@ -92,6 +92,11 @@ jobs:
 #     - name: 🌐 kubectl apply deployment 
 #       run: |
 #           kubectl apply -f acr-nginx.yaml
+      
+    - name: login
+      run: |
+           az acr login -n azuretoolsacr
+        
 
     - name: acr import
       run: |
