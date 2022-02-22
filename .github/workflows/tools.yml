@@ -95,7 +95,7 @@ jobs:
       
     - name: login
       run: |
-           az acr login -n azuretoolsacr
+           az login
         
 
     - name: acr import
