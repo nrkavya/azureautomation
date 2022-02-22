@@ -94,7 +94,7 @@ jobs:
         
     - name: acr import
       run: |
-         az acr import  -n azuretoolsacr --source docker.io/20848/frontend:1.0.0 --image frontend:v4
+         az acr import  -n azuretoolsacr --source docker.io/20848/frontend:1.0.0 --image frontend:v5
    
     - name: 🌐 kubectl apply deployment 
       run: |
