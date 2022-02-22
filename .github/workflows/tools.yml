@@ -94,7 +94,7 @@ jobs:
         
     - name: acr import
       run: |
-         az acr import  -n azuretoolsacr --source docker.io/20848/frontend:1.0.0 --image frontend:v2
+         az acr import  -n azuretoolsacr --source docker.io/20848/frontend:1.0.0 --image frontend:tool
    
     - name: 🌐 kubectl apply deployment 
       run: |
@@ -102,7 +102,7 @@ jobs:
    
     - name: pull
       run: |
-        docker pull ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/frontend:v2
+        docker pull ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/frontend:tool
 
     - name: ☸ tye deploy
       run: |
