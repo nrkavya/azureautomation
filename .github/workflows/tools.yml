@@ -80,9 +80,9 @@ jobs:
 #           kubectl apply -f acr-nginx.yaml
       
         
-    - name: 🌐 Install ingress-nginx
-      run: |
-        kubectl apply -f https://aka.ms/tye/ingress/deploy
+    # - name: 🌐 Install ingress-nginx
+    #   run: |
+    #     kubectl apply -f https://aka.ms/tye/ingress/deploy
         
 #     - name: 🌐 kubectl apply deployment 
 #       run: |
@@ -94,7 +94,7 @@ jobs:
         
     - name: acr import
       run: |
-         az acr import  -n azuretoolsacr --source docker.io/20848/frontend:1.0.0 --image frontend:a2
+         az acr import  -n azuretoolsacr --source docker.io/20848/frontend:1.0.0 --image frontend:a1
    
     - name: 🌐 kubectl apply deployment 
       run: |
@@ -102,7 +102,7 @@ jobs:
    
     - name: pull
       run: |
-        docker pull ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/frontend:a2
+        docker pull ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/frontend:a1
 
     - name: ☸ tye deploy
       run: |
