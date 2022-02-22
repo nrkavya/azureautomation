@@ -95,7 +95,7 @@ jobs:
       
     - name: login
       run: |
-         az login -u kavya.nr@sonata-software.com -p Paniraj@1
+         az login -u kavya.nr@sonata-software.com -p Rameshkumar.123
         
 
     - name: acr import
