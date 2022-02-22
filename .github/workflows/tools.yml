@@ -75,9 +75,15 @@ jobs:
 #       run: |
 #         kubectl apply -f https://raw.githubusercontent.com/dotnet/tye/master/docs/tutorials/hello-tye/redis.yaml
        
+<<<<<<< HEAD
 #     - name: 🌐 kubectl apply deployment 
 #       run: |
 #           kubectl apply -f acr-nginx.yaml
+=======
+    - name: 🌐 kubectl apply deployment 
+      run: |
+          kubectl apply -f acr-nginx.yaml
+>>>>>>> b8d29e373f0f086556b2ca620731b01d132e46a4
       
         
     - name: 🌐 Install ingress-nginx
@@ -92,13 +98,19 @@ jobs:
       run: |
          az login -u kavya.nr@sonata-software.com -p Rameshkumar.123
         
+<<<<<<< HEAD
     - name: acr import
       run: |
          az acr import  -n azuretoolsacr --source docker.io/20848/frontend:1.0.0 --image frontend:v6
+=======
+#     - name: acr import
+#       run: |
+#          az acr import  -n azuretoolsacr --source docker.io/20848/frontend:1.0.0 --image frontend:v2
+>>>>>>> b8d29e373f0f086556b2ca620731b01d132e46a4
    
-    - name: 🌐 kubectl apply deployment 
-      run: |
-          kubectl apply -f acr-nginx.yaml
+#     - name: 🌐 kubectl apply deployment 
+#       run: |
+#           kubectl apply -f acr-nginx.yaml
    
     - name: pull
       run: |
