@@ -9,7 +9,7 @@ env:
   AZURE_CONTAINER_REGISTRY: azuretoolsacr
   PROJECT_NAME: Azure Automation
   SECRET: regcred
-  NAMESPACE: tools
+  NAMESPACE: default
   APP_NAME: microservices
   ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
 
@@ -86,9 +86,9 @@ jobs:
 #          cluster-name: ${{ env.AZURE_AKS_CLUSTER }}
      
       
-    - name: 🌐 kubectl apply
-      run: |
-        kubectl apply -f https://raw.githubusercontent.com/dotnet/tye/master/docs/tutorials/hello-tye/redis.yaml
+#     - name: 🌐 kubectl apply
+#       run: |
+#         kubectl apply -f https://raw.githubusercontent.com/dotnet/tye/master/docs/tutorials/hello-tye/redis.yaml
         
     - name: 🌐 Install ingress-nginx
       run: |
