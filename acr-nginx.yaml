@@ -15,17 +15,8 @@ spec:
         app: frontend
     spec:
       containers:
-<<<<<<< HEAD
       - name: frontend
-        image: azuretoolsacr.azurecr.io/frontend:v6
-=======
-      - name: nginx
-<<<<<<< HEAD
-        image: azuretoolsacr.azurecr.io/frontend:latest
->>>>>>> b8d29e373f0f086556b2ca620731b01d132e46a4
-=======
-        image: azuretoolsacr.azurecr.io/frontend:v6
->>>>>>> 149586522ca75e3c9924140f9fd1b30d916d010e
+        image: azuretoolsacr.azurecr.io/frontend:v8
         imagePullPolicy: Always
         ports:
         - containerPort: 80
