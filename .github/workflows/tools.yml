@@ -44,9 +44,9 @@ jobs:
        method: kubeconfig
        kubeconfig: ${{ secrets.KUBE_CONFIG }}
      
-    - name: build
-      run: |
-        docker build - < Dockerfile
+#     - name: build
+#       run: |
+#         docker build - < Dockerfile
        
 #     - name: undeploy
 #       run: |
@@ -94,9 +94,9 @@ jobs:
       run: |
         kubectl apply -f https://aka.ms/tye/ingress/deploy
    
-    - name: pull
-      run: |
-        docker pull ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/frontend:1.0.0
+#     - name: pull
+#       run: |
+#         docker pull ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/frontend:1.0.0
 
     - name: ☸ tye deploy
       run: |
