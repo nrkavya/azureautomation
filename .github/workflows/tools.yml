@@ -102,9 +102,9 @@ jobs:
           kubectl apply -f acr-frontend.yaml
           
    
-    - name: pull
-      run: |
-        docker pull ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/frontend:v5
+#     - name: pull
+#       run: |
+#         docker pull ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/frontend:v5
         
         
     - name: ☸ tye deploy
