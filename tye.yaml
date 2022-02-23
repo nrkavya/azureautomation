@@ -6,7 +6,7 @@
 #
 
 name: microservice
-# registry: azuretoolsacr.azurecr.io
+registry: azuretoolsacr.azurecr.io
 ingress:
   - name: ingress
     bindings:
