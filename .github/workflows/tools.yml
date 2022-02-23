@@ -94,19 +94,18 @@ jobs:
         
     - name: acr import
       run: |
-         az acr import  -n azuretoolsacr --source docker.io/20848/frontend:1.0.0 --image frontend:v1
-          az acr import  -n azuretoolsacr --source docker.io/20848/backend:1.0.0 --image backend:v1
+         az acr import  -n azuretoolsacr --source docker.io/20848/frontend:1.0.0 --image frontend:v2
 
    
     - name: 🌐 kubectl apply deployment 
       run: |
           kubectl apply -f acr-frontend.yaml
-          kubectl apply -f acr-backend.yaml
+          
    
     - name: pull
       run: |
-        docker pull ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/frontend:v1
-         docker pull ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/backend:v1
+        docker pull ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/frontend:v2
+        
         
     - name: ☸ tye deploy
       run: |
