@@ -8,7 +8,6 @@ env:
   ACR_RESOURCE_URI: azuretoolsacr.azurecr.io
   AZURE_CONTAINER_REGISTRY: azuretoolsacr
   PROJECT_NAME: Azure Automation
-  SECRET: regcred
   NAMESPACE: default
   APP_NAME: microservices
   ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
@@ -71,14 +70,10 @@ jobs:
       run: |
         kubectl apply -f https://raw.githubusercontent.com/dotnet/tye/master/docs/tutorials/hello-tye/redis.yaml
        
-#     - name: 🌐 kubectl apply deployment 
-#       run: |
-#           kubectl apply -f acr-nginx.yaml
-      
         
-#     - name: 🌐 Install ingress-nginx
-#       run: |
-#         kubectl apply -f https://aka.ms/tye/ingress/deploy
+    - name: 🌐 Install ingress-nginx
+      run: |
+        kubectl apply -f https://aka.ms/tye/ingress/deploy
         
 #     - name: 🌐 kubectl apply deployment 
 #       run: |
@@ -100,7 +95,7 @@ jobs:
    
     - name: Cmdline@2
       run: | 
-          Kubectl  rollout restart deployment/frontend
+          kubectl  rollout restart deployment/frontend
     
         
     - name: ☸ tye deploy
