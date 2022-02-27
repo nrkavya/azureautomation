@@ -98,11 +98,10 @@ jobs:
 #           kubectl apply -f acr-frontend.yaml
           
    
-    - name: restart 
-      run: |
-          'kubectl rollout restart deployment/frontend'
+    - name: Cmdline@2
+      run: | 
+          Kubectl  rollout restart deployment/frontend
     
-
         
     - name: ☸ tye deploy
       run: |
