@@ -44,10 +44,6 @@ jobs:
        method: kubeconfig
        kubeconfig: ${{ secrets.KUBE_CONFIG }}
        
-#     - name: undeploy
-#       run: |
-#          tye undeploy
-       
 #       # Create namespace if doesn't exist
 #     - run: |
 #         kubectl create namespace ${{ env.NAMESPACE }} --dry-run=client -o json | kubectl apply -f -
@@ -88,24 +84,25 @@ jobs:
 #       run: |
 #           kubectl apply -f acr-nginx.yaml
       
-    - name: login
-      run: |
-         az login -u kavya.nr@sonata-software.com -p Rameshkumar.123
+#     - name: login
+#       run: |
+#          az login -u kavya.nr@sonata-software.com -p Rameshkumar.123
         
-    - name: acr import
-      run: |
-         az acr import  -n azuretoolsacr --source docker.io/20848/frontend:1.0.0 --image frontend:v7
+#     - name: acr import
+#       run: |
+#          az acr import  -n azuretoolsacr --source docker.io/20848/frontend:1.0.0 --image frontend:v7
 
    
-    - name: 🌐 kubectl apply deployment 
-      run: |
-          kubectl apply -f acr-frontend.yaml
+#     - name: 🌐 kubectl apply deployment 
+#       run: |
+#           kubectl apply -f acr-frontend.yaml
           
    
-    # - name: pull
-    #   run: |
-    #     docker pull ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/frontend:v5
-        
+    - name: restart 
+      run: |
+          'kubectl rollout restart deployment/frontend'
+    
+
         
     - name: ☸ tye deploy
       run: |
