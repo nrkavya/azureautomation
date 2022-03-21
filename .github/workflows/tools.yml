@@ -71,9 +71,9 @@ jobs:
 #         kubectl apply -f https://raw.githubusercontent.com/dotnet/tye/master/docs/tutorials/hello-tye/redis.yaml
        
         
-    - name: 🌐 Install ingress-nginx
-      run: |
-        kubectl apply -f https://aka.ms/tye/ingress/deploy
+#     - name: 🌐 Install ingress-nginx
+#       run: |
+#         kubectl apply -f https://aka.ms/tye/ingress/deploy
         
 #     - name: 🌐 kubectl apply deployment 
 #       run: |
